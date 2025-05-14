@@ -1,25 +1,32 @@
-"""LLM integration module for Chain of Solution framework."""
+"""LLM integration module for Chain of Solution framework.
+
+This module provides integration with large language models (LLMs) for the
+Chain of Solution framework, enabling natural language understanding and
+generation capabilities.
+"""
 
 import logging
+import json
 import os
-from typing import Dict, List, Any, Optional
+import time
+from typing import Dict, List, Any, Optional, Union
 
 
-class CoSLLM:
-    """Chain of Solution LLM integration.
+class LLMIntegration:
+    """LLM integration for Chain of Solution framework.
     
-    This class integrates Large Language Models with the Chain of Solution
-    framework, enabling structured problem-solving through natural language
-    reasoning.
+    This class provides methods to integrate large language models (LLMs)
+    with the Chain of Solution framework, enabling natural language
+    understanding and generation capabilities.
     """
     
-    def __init__(self, config):
-        """Initialize the CoS-LLM integration module.
+    def __init__(self, config=None):
+        """Initialize the LLM integration module.
         
         Args:
             config: Configuration object or dictionary
         """
-        self.logger = logging.getLogger('cos_framework.llm')
+        self.logger = logging.getLogger('cos_framework.models.llm')
         
         # Get configuration
         if hasattr(config, 'get'):
@@ -27,258 +34,325 @@ class CoSLLM:
         else:
             from ..core.config import CoSConfig
             self.config = CoSConfig()
-            if isinstance(config, dict):
+            if isinstance(config, dict) and config:
                 self.config._update_dict(self.config.config, config)
         
-        # Load prompt template
-        self.prompt_template = self._load_prompt_template()
+        # Check if module is enabled
+        self.enabled = self.config.get('llm.enabled', True)
+        if not self.enabled:
+            self.logger.warning("LLM integration is disabled in configuration")
+            return
         
-        # LLM configuration
-        self.model_name = self.config.get('llm.model', 'llama3-70b')
+        # Get model configuration
+        self.model_name = self.config.get('llm.model', 'Llama3.1-70B')
         self.temperature = self.config.get('llm.temperature', 0.7)
-        self.max_tokens = self.config.get('llm.max_tokens', 1024)
+        self.max_tokens = self.config.get('llm.max_tokens', 2048)
         
-        self.logger.info(f"CoS-LLM integration initialized with model {self.model_name}")
+        # Initialize the model
+        self._init_model()
+        
+        self.logger.info(f"LLM integration initialized with model: {self.model_name}")
     
-    def _load_prompt_template(self) -> str:
-        """Load the prompt template for the CoS framework.
+    def _init_model(self):
+        """Initialize the language model.
         
-        Returns:
-            Prompt template as a string
+        In a real implementation, this would load or connect to an actual LLM.
+        For demonstration, we'll simulate the model.
         """
-        template_path = self.config.get('llm.prompt_template_path')
+        self.logger.info(f"Initializing language model: {self.model_name}")
         
-        if template_path and os.path.exists(template_path):
-            try:
-                with open(template_path, 'r') as f:
-                    template = f.read()
-                self.logger.info(f"Loaded prompt template from {template_path}")
-                return template
-            except Exception as e:
-                self.logger.error(f"Failed to load prompt template from {template_path}: {e}")
+        # In a real implementation, this would initialize the actual model
+        # For example, using a library like transformers, llama.cpp, or API clients
         
-        # Use default template if file not found or error occurred
-        self.logger.warning("Using default prompt template")
-        return """
-# Chain of Solution Analysis
-
-## Problem Description
-{problem_description}
-
-## Available Data Modalities
-{data_sources_str}
-
-## Cross-Modal Pattern Analysis
-{patterns_str}
-
-## Contradictions Identified
-{contradictions_str}
-
-## TRIZ Principles Applied
-{triz_principles_str}
-
-## Recommended Su-Field Solutions
-{su_field_solutions_str}
-
-## Integrated Solution
-Based on the analysis above, please provide a comprehensive solution to the problem.
-"""
-    
-    def generate_cos_prompt(self, problem_description: str, data_sources: Dict[str, Any], 
-                          patterns: List[Dict[str, Any]], contradictions: List[Dict[str, Any]],
-                          triz_solutions: List[Dict[str, Any]] = None, 
-                          su_field_solutions: List[Dict[str, Any]] = None) -> str:
-        """Generate a CoS-structured prompt for the LLM.
-        
-        Args:
-            problem_description: Description of the problem
-            data_sources: Available data sources
-            patterns: Detected cross-modal patterns
-            contradictions: Identified contradictions
-            triz_solutions: TRIZ-based solutions (optional)
-            su_field_solutions: Su-Field based solutions (optional)
-            
-        Returns:
-            Structured prompt for the LLM
-        """
-        # Format data sources section
-        data_sources_str = "\n".join([f"- {name} ({info.get('modality_type', 'unknown')}): {info.get('summary', 'No summary')}" 
-                                 for name, info in data_sources.items()])
-        
-        # Format patterns section
-        patterns_str = "\n".join([f"- Pattern {i+1}: {p.get('description', 'No description')} " 
-                              f"(Strength: {p.get('strength', 0):.2f})" 
-                              for i, p in enumerate(patterns)])
-        
-        # Format contradictions section
-        contradictions_str = "\n".join([f"- Contradiction {i+1}: {c.get('description', 'No description')} " 
-                                   f"(Severity: {c.get('severity', 0):.2f})" 
-                                   for i, c in enumerate(contradictions)])
-        
-        # Format TRIZ solutions section
-        triz_principles_str = ""
-        if triz_solutions:
-            triz_principles_str = "\n".join([f"- Principle {s.get('principle_id', 'unknown')}: {s.get('principle_name', 'Unknown')} - " 
-                                        f"{s.get('solution_description', 'No description')}" 
-                                        for s in triz_solutions])
-        else:
-            triz_principles_str = "No TRIZ principles applied yet."
-        
-        # Format Su-Field solutions section
-        su_field_solutions_str = ""
-        if su_field_solutions:
-            su_field_solutions_str = "\n".join([f"- Solution {s.get('solution_id', 'unknown')}: {s.get('solution_name', 'Unknown')} - " 
-                                          f"{s.get('solution_description', 'No description')}" 
-                                          for s in su_field_solutions])
-        else:
-            su_field_solutions_str = "No Su-Field solutions recommended yet."
-        
-        # Fill in the template
-        prompt = self.prompt_template.format(
-            problem_description=problem_description,
-            data_sources_str=data_sources_str,
-            patterns_str=patterns_str,
-            contradictions_str=contradictions_str,
-            triz_principles_str=triz_principles_str,
-            su_field_solutions_str=su_field_solutions_str
-        )
-        
-        return prompt
-    
-    def _call_llm(self, prompt: str) -> str:
-        """Call the LLM with the given prompt.
-        
-        In a real implementation, this would make an API call to the LLM.
-        For demonstration, we'll simulate a response.
-        
-        Args:
-            prompt: The prompt to send to the LLM
-            
-        Returns:
-            LLM response as a string
-        """
-        self.logger.info(f"Calling LLM model {self.model_name} with prompt length {len(prompt)}")
-        
-        # In a real implementation, this would call an API like Anthropic, OpenAI, or a local model
-        # For demonstration, return a simple response that includes parts of the prompt
-        if 'problem_description' in prompt and 'contradictions' in prompt:
-            # Extract problem description
-            try:
-                problem_start = prompt.find('## Problem Description') + 22
-                problem_end = prompt.find('##', problem_start)
-                problem_text = prompt[problem_start:problem_end].strip()
-                
-                # Create a simulated response
-                return f"""Based on the analysis of the cross-modal patterns and identified contradictions, I recommend the following solution:
-
-1. The problem of {problem_text[:50]}... can be addressed by applying TRIZ principles to resolve the key contradictions.
-
-2. From the patterns detected across different data modalities, it's clear that there's a significant relationship between the observed phenomena that wasn't evident when analyzing each modality separately.
-
-3. The most effective approach would be to implement a system that dynamically reconfigures itself based on real-time feedback (TRIZ Principle 42), while simultaneously optimizing the boundary conditions (TRIZ Principle 50).
-
-4. This solution addresses the contradictions by creating a balance between competing requirements and leveraging the unique insights that emerge from cross-modal analysis.
-
-5. Implementation should proceed in phases, starting with a prototype that focuses on the most critical interactions identified in the pattern analysis, followed by gradual expansion to address all aspects of the problem.
-
-This approach not only resolves the immediate issues but creates a framework for addressing similar problems in the future through continuous learning and adaptation."""
-            except Exception as e:
-                self.logger.error(f"Error generating simulated LLM response: {e}")
-                return "I couldn't generate a proper solution for this problem due to an error in processing the prompt."
-        else:
-            return "Insufficient information to generate a comprehensive solution. Please provide a complete problem description and analysis."
-    
-    def process_response(self, llm_response: str) -> Dict[str, Any]:
-        """Process and structure the LLM response according to CoS methodology.
-        
-        Args:
-            llm_response: Raw response from the LLM
-            
-        Returns:
-            Structured response
-        """
-        # In a real implementation, this would parse the LLM response into structured components
-        # For demonstration, create a simple structured response
-        structured_response = {
-            'solution': llm_response,
-            'key_points': [],
-            'implementation_steps': []
+        # For demonstration, we'll just create a placeholder for the model
+        self.model = {
+            'name': self.model_name,
+            'temperature': self.temperature,
+            'max_tokens': self.max_tokens,
+            'initialized': True
         }
         
-        # Extract key points (lines starting with numbers)
-        lines = llm_response.split('\n')
-        for line in lines:
-            line = line.strip()
-            if line and line[0].isdigit() and '. ' in line:
-                point = line[line.find('. ')+2:]
-                structured_response['key_points'].append(point)
-        
-        # Identify implementation steps if present
-        if 'Implementation' in llm_response or 'implementation' in llm_response:
-            in_implementation = False
-            implementation_steps = []
-            
-            for line in lines:
-                if 'Implementation' in line or 'implementation' in line:
-                    in_implementation = True
-                    continue
-                    
-                if in_implementation and line.strip() and not line.startswith('#'):
-                    if line[0].isdigit() and '. ' in line:
-                        step = line[line.find('. ')+2:]
-                        implementation_steps.append(step)
-            
-            structured_response['implementation_steps'] = implementation_steps
-        
-        return structured_response
+        # Check if model is initialized successfully
+        if not self.model.get('initialized', False):
+            self.logger.error(f"Failed to initialize language model: {self.model_name}")
+            self.model = None
     
-    def generate_solution(self, problem_description: str, data_sources: Dict[str, Any], 
-                        patterns: List[Dict[str, Any]] = None, 
-                        contradictions: List[Dict[str, Any]] = None,
-                        triz_solutions: List[Dict[str, Any]] = None,
-                        su_field_solutions: List[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """Generate a complete solution using the CoS-LLM integration.
+    def generate_text(self, prompt, max_tokens=None, temperature=None):
+        """Generate text using the language model.
+        
+        Args:
+            prompt: Input prompt for text generation
+            max_tokens: Maximum number of tokens to generate (optional)
+            temperature: Temperature for sampling (optional)
+            
+        Returns:
+            Generated text
+        """
+        if not self.enabled or not self.model:
+            self.logger.warning("LLM integration is disabled or model not initialized")
+            return "[LLM integration is disabled or model not initialized]"
+        
+        self.logger.info(f"Generating text with prompt: {prompt[:50]}...")
+        
+        # Use provided parameters or fall back to defaults
+        max_tokens = max_tokens or self.max_tokens
+        temperature = temperature or self.temperature
+        
+        # In a real implementation, this would call the actual LLM
+        # For demonstration, we'll simulate the response
+        
+        # Simulate thinking time
+        time.sleep(0.5)
+        
+        # Generate a simple response based on the prompt
+        # This is a placeholder for actual LLM output
+        if 'problem' in prompt.lower():
+            return self._simulate_problem_response(prompt)
+        elif 'triz' in prompt.lower():
+            return self._simulate_triz_response(prompt)
+        elif 'multimodal' in prompt.lower():
+            return self._simulate_multimodal_response(prompt)
+        else:
+            return self._simulate_general_response(prompt)
+    
+    def parse_problem(self, problem_description, context=None):
+        """Parse a problem description to extract key components.
         
         Args:
             problem_description: Description of the problem
-            data_sources: Available data sources
-            patterns: Detected cross-modal patterns (optional)
-            contradictions: Identified contradictions (optional)
-            triz_solutions: TRIZ-based solutions (optional)
-            su_field_solutions: Su-Field based solutions (optional)
+            context: Additional context (optional)
+            
+        Returns:
+            Parsed problem components
+        """
+        self.logger.info("Parsing problem description")
+        
+        # In a real implementation, this would use the LLM to parse the problem
+        # For demonstration, we'll simulate the parsed components
+        
+        # Create a prompt for problem parsing
+        prompt = f"""Parse the following problem description and extract key components:
+
+Problem Description:
+{problem_description}
+
+Extract the following components:
+1. Keywords
+2. Domains (fields/areas involved)
+3. Constraints
+4. Objectives
+
+Provide the output in JSON format.
+"""
+        
+        # In a real implementation, we would send this to the LLM and parse the response
+        # For demonstration, we'll extract some basic components manually
+        
+        words = problem_description.lower().split()
+        
+        # Simple keyword extraction (words with length > 4)
+        keywords = [word for word in words if len(word) > 4 and word.isalpha()][:10]
+        
+        # Simple domain detection
+        domains = []
+        if any(word in words for word in ['medical', 'patient', 'health', 'hospital', 'doctor']):
+            domains.append('healthcare')
+        if any(word in words for word in ['software', 'app', 'technology', 'digital', 'computer']):
+            domains.append('technology')
+        if any(word in words for word in ['business', 'cost', 'market', 'customer', 'product']):
+            domains.append('business')
+        
+        # Simple constraint detection
+        constraints = []
+        if 'cost' in words or 'budget' in words or 'expensive' in words:
+            constraints.append('Cost constraints')
+        if 'time' in words or 'deadline' in words or 'quick' in words:
+            constraints.append('Time constraints')
+        if 'regulation' in words or 'compliance' in words or 'legal' in words:
+            constraints.append('Regulatory constraints')
+        
+        # Simple objective detection
+        objectives = []
+        if 'improve' in words or 'enhance' in words or 'increase' in words:
+            objectives.append('Improvement of existing system/process')
+        if 'create' in words or 'develop' in words or 'design' in words:
+            objectives.append('Creation of new solution')
+        if 'reduce' in words or 'decrease' in words or 'minimize' in words:
+            objectives.append('Reduction of negative factors')
+        
+        # Assemble the parsed problem
+        parsed_problem = {
+            'problem_statement': problem_description,
+            'keywords': keywords,
+            'domains': domains if domains else ['general'],
+            'constraints': constraints,
+            'objectives': objectives
+        }
+        
+        return parsed_problem
+    
+    def generate_solution(self, problem_analysis, triz_principles, multimodal_analysis, application_results):
+        """Generate a solution based on various analyses.
+        
+        Args:
+            problem_analysis: Results from problem analysis
+            triz_principles: Identified TRIZ principles
+            multimodal_analysis: Multimodal data analysis results
+            application_results: Results from specific applications
             
         Returns:
             Generated solution
         """
-        # Use empty lists if any optional arguments are None
-        patterns = patterns or []
-        contradictions = contradictions or []
-        triz_solutions = triz_solutions or []
-        su_field_solutions = su_field_solutions or []
+        self.logger.info("Generating solution")
         
-        # Generate prompt
-        prompt = self.generate_cos_prompt(
-            problem_description, 
-            data_sources, 
-            patterns, 
-            contradictions, 
-            triz_solutions, 
-            su_field_solutions
-        )
+        # In a real implementation, this would use the LLM to generate a solution
+        # For demonstration, we'll simulate the solution
         
-        # Call LLM
-        llm_response = self._call_llm(prompt)
+        # Create a prompt for solution generation
+        prompt = f"""Generate a comprehensive solution based on the following analyses:
+
+Problem Analysis:
+{json.dumps(problem_analysis, indent=2)}
+
+TRIZ Principles:
+{json.dumps(triz_principles, indent=2) if triz_principles else 'No TRIZ principles identified'}
+
+Multimodal Analysis:
+{json.dumps(multimodal_analysis, indent=2) if multimodal_analysis else 'No multimodal analysis performed'}
+
+Application Results:
+{json.dumps(application_results, indent=2) if application_results else 'No application results available'}
+
+Provide a solution with the following components:
+1. Summary
+2. Detailed approach
+3. Specific recommendations
+4. Implementation steps
+5. Expected benefits
+"""
         
-        # Process response
-        solution = self.process_response(llm_response)
+        # In a real implementation, we would send this to the LLM and parse the response
+        # For demonstration, we'll create a simulated solution
         
-        # Add metadata
-        solution['problem_description'] = problem_description
-        solution['used_patterns'] = len(patterns)
-        solution['used_contradictions'] = len(contradictions)
-        solution['used_triz_solutions'] = len(triz_solutions)
-        solution['used_su_field_solutions'] = len(su_field_solutions)
+        # Extract relevant information from analyses
+        domains = problem_analysis.get('domains', [])
+        keywords = problem_analysis.get('keywords', [])
+        objectives = problem_analysis.get('objectives', [])
         
-        self.logger.info("Generated solution using LLM integration")
+        # Extract TRIZ principles (if available)
+        principles = []
+        if triz_principles and 'principles' in triz_principles:
+            principles = [p.get('name', '') for p in triz_principles.get('principles', [])[:3]]
+        
+        # Extract multimodal findings (if available)
+        findings = []
+        if multimodal_analysis and 'emergent_findings' in multimodal_analysis:
+            findings = [f.get('description', '') for f in multimodal_analysis.get('emergent_findings', [])[:2]]
+        
+        # Extract application results (if available)
+        app_results = []
+        for app_name, result in application_results.items():
+            if app_name == 'cellstyle' and 'classification' in result:
+                app_results.append(f"CellStyle Analysis: {result['classification']}")
+            elif app_name == 'soundpose' and 'integrated_assessment' in result:
+                assessment = result['integrated_assessment']
+                if 'assessment' in assessment:
+                    app_results.append(f"SoundPose Analysis: {assessment['assessment']}")
+            elif app_name == 'image_enhancement' and 'report' in result:
+                app_results.append(f"Image Enhancement: {result['report']['enhancement_type']} applied")
+        
+        # Generate a simulated solution
+        solution = {
+            'summary': "Integrated solution based on multi-faceted analysis",
+            'detailed_approach': (
+                f"This approach combines insights from {'TRIZ principles' if principles else 'problem analysis'} "
+                f"and {'multimodal data analysis' if findings else 'domain expertise'} "
+                f"to address the identified objectives in {', '.join(domains[:2]) if domains else 'relevant domains'}."    
+            ),
+            'recommendations': [],
+            'implementation_steps': [
+                "Gather detailed requirements and constraints",
+                "Develop a prototype based on the proposed solution",
+                "Test with a small user group to gather feedback",
+                "Refine and optimize based on real-world performance",
+                "Deploy the solution with continuous monitoring and improvement"
+            ],
+            'expected_benefits': [
+                "Improved efficiency and effectiveness",
+                "Reduced costs and resource requirements",
+                "Enhanced user experience and satisfaction",
+                "Long-term sustainability and adaptability"
+            ],
+            'confidence': 0.85
+        }
+        
+        # Add recommendations based on available analyses
+        if principles:
+            solution['recommendations'].append(f"Apply the {principles[0]} principle to optimize system design")
+        if findings:
+            solution['recommendations'].append(f"Leverage the {findings[0]} for enhanced detection")
+        if app_results:
+            solution['recommendations'].extend(app_results)
+        if objectives:
+            solution['recommendations'].append(f"Focus on {objectives[0]} to maximize impact")
+        
+        # If we don't have enough recommendations, add some generic ones
+        if len(solution['recommendations']) < 3:
+            generic_recommendations = [
+                "Implement a modular design for future extensibility",
+                "Incorporate continuous feedback mechanisms for ongoing optimization",
+                "Develop a comprehensive testing protocol to ensure reliability",
+                "Create intuitive user interfaces to enhance adoption"
+            ]
+            solution['recommendations'].extend(generic_recommendations[:3 - len(solution['recommendations'])])
+        
+        # Add problem analysis, TRIZ principles, and multimodal analysis to the solution
+        solution['problem_analysis'] = problem_analysis
+        solution['triz_principles'] = triz_principles
+        solution['multimodal_analysis'] = multimodal_analysis
+        solution['application_results'] = application_results
         
         return solution
+    
+    def _simulate_problem_response(self, prompt):
+        """Simulate a response to a problem-related prompt."""
+        return (
+            "I've analyzed the problem and identified the following key components:\n\n"
+            "1. Core issues: efficiency, resource utilization, user experience\n"
+            "2. Constraints: time limitations, budget considerations, technical feasibility\n"
+            "3. Objectives: improve performance, reduce costs, enhance satisfaction\n\n"
+            "Based on this analysis, I recommend a multi-faceted approach that addresses each component systematically."
+        )
+    
+    def _simulate_triz_response(self, prompt):
+        """Simulate a response to a TRIZ-related prompt."""
+        return (
+            "Based on TRIZ principles, the main contradictions in this problem are:\n\n"
+            "1. Improving feature X weakens feature Y\n"
+            "2. Increasing efficiency reduces reliability\n\n"
+            "Recommended TRIZ principles to resolve these contradictions:\n"
+            "- Principle 1: Segmentation\n"
+            "- Principle 15: Dynamism\n"
+            "- Principle 35: Parameter Changes\n\n"
+            "Applying these principles will help resolve the contradictions while achieving the desired outcomes."
+        )
+    
+    def _simulate_multimodal_response(self, prompt):
+        """Simulate a response to a multimodal-related prompt."""
+        return (
+            "The multimodal analysis reveals interesting patterns across the different data types:\n\n"
+            "1. Text and image data show semantic alignment in key areas\n"
+            "2. Audio features correlate with specific temporal patterns in the time series data\n"
+            "3. An emergent pattern spanning all three modalities indicates a potential underlying mechanism\n\n"
+            "These cross-modal patterns provide insights that wouldn't be visible when analyzing each modality separately."
+        )
+    
+    def _simulate_general_response(self, prompt):
+        """Simulate a general response for other types of prompts."""
+        return (
+            "I've processed your request and can provide the following insights:\n\n"
+            "The key factors to consider are context, requirements, and constraints. Based on the available information, "
+            "a balanced approach that considers multiple perspectives would be most effective. Consider both short-term "
+            "solutions and long-term strategies to address the underlying issues comprehensively.\n\n"
+            "Would you like me to elaborate on any specific aspect of this analysis?"
+        )
