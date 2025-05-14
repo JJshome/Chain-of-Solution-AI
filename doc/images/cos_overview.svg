@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333333">Chain of Solution (CoS) Framework Overview</text>
+  
+  <!-- Main Framework Box -->
+  <rect x="100" y="80" width="600" height="420" rx="10" ry="10" fill="#e6f3ff" stroke="#3498db" stroke-width="2" />
+  
+  <!-- Core Components -->
+  <rect x="130" y="120" width="240" height="160" rx="8" ry="8" fill="#ffffff" stroke="#3498db" stroke-width="2" />
+  <text x="250" y="145" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333333">Core Framework</text>
+  
+  <!-- Core Component Items -->
+  <rect x="150" y="160" width="200" height="30" rx="5" ry="5" fill="#d4e6f1" stroke="#3498db" stroke-width="1" />
+  <text x="250" y="180" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">Problem Analysis</text>
+  
+  <rect x="150" y="200" width="200" height="30" rx="5" ry="5" fill="#d4e6f1" stroke="#3498db" stroke-width="1" />
+  <text x="250" y="220" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">TRIZ Engine</text>
+  
+  <rect x="150" y="240" width="200" height="30" rx="5" ry="5" fill="#d4e6f1" stroke="#3498db" stroke-width="1" />
+  <text x="250" y="260" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">Multimodal Analysis</text>
+  
+  <!-- Applications -->
+  <rect x="430" y="120" width="240" height="160" rx="8" ry="8" fill="#ffffff" stroke="#2ecc71" stroke-width="2" />
+  <text x="550" y="145" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333333">Applications</text>
+  
+  <!-- Application Items -->
+  <rect x="450" y="160" width="200" height="30" rx="5" ry="5" fill="#d5f5e3" stroke="#2ecc71" stroke-width="1" />
+  <text x="550" y="180" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">Digital Pathology (CellStyle™)</text>
+  
+  <rect x="450" y="200" width="200" height="30" rx="5" ry="5" fill="#d5f5e3" stroke="#2ecc71" stroke-width="1" />
+  <text x="550" y="220" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">Sound Analysis (SoundPose™)</text>
+  
+  <rect x="450" y="240" width="200" height="30" rx="5" ry="5" fill="#d5f5e3" stroke="#2ecc71" stroke-width="1" />
+  <text x="550" y="260" font-family="Arial" font-size="14" text-anchor="middle" fill="#333333">Image Enhancement</text>
+  
+  <!-- LLM Integration -->
+  <rect x="130" y="320" width="540" height="80" rx="8" ry="8" fill="#ffffff" stroke="#9b59b6" stroke-width="2" />
+  <text x="400" y="350" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333333">Large Language Model Integration</text>
+  <text x="400" y="380" font-family="Arial" font-size="14" text-anchor="middle" fill="#666666">Llama3.1-70B and other models</text>
+  
+  <!-- Data Types -->
+  <rect x="130" y="440" width="160" height="40" rx="5" ry="5" fill="#ffffff" stroke="#e74c3c" stroke-width="2" />
+  <text x="210" y="465" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333333">Text Data</text>
+  
+  <rect x="320" y="440" width="160" height="40" rx="5" ry="5" fill="#ffffff" stroke="#e74c3c" stroke-width="2" />
+  <text x="400" y="465" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333333">Image Data</text>
+  
+  <rect x="510" y="440" width="160" height="40" rx="5" ry="5" fill="#ffffff" stroke="#e74c3c" stroke-width="2" />
+  <text x="590" y="465" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333333">Audio Data</text>
+  
+  <!-- Arrows -->
+  <!-- Text to Core -->
+  <line x1="210" y1="440" x2="210" y2="290" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="210,290 205,300 215,300" fill="#e74c3c" />
+  
+  <!-- Image to Core -->
+  <line x1="400" y1="440" x2="400" y2="290" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="400,290 395,300 405,300" fill="#e74c3c" />
+  
+  <!-- Audio to Core -->
+  <line x1="590" y1="440" x2="590" y2="290" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="590,290 585,300 595,300" fill="#e74c3c" />
+  
+  <!-- Core to LLM -->
+  <line x1="250" y1="290" x2="250" y2="320" stroke="#3498db" stroke-width="2" />
+  <polygon points="250,320 245,310 255,310" fill="#3498db" />
+  
+  <!-- Application to LLM -->
+  <line x1="550" y1="290" x2="550" y2="320" stroke="#2ecc71" stroke-width="2" />
+  <polygon points="550,320 545,310 555,310" fill="#2ecc71" />
+  
+  <!-- Solution Line -->
+  <line x1="400" y1="520" x2="400" y2="410" stroke="#f39c12" stroke-width="3" />
+  <polygon points="400,410 395,420 405,420" fill="#f39c12" />
+  
+  <!-- Solution Box -->
+  <rect x="300" y="520" width="200" height="50" rx="8" ry="8" fill="#fef9e7" stroke="#f39c12" stroke-width="2" />
+  <text x="400" y="550" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#333333">Solution</text>
+  
+  <!-- Legend -->
+  <rect x="650" y="520" width="120" height="20" rx="3" ry="3" fill="#d4e6f1" stroke="#3498db" stroke-width="1" />
+  <text x="710" y="535" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Core Components</text>
+  
+  <rect x="650" y="550" width="120" height="20" rx="3" ry="3" fill="#d5f5e3" stroke="#2ecc71" stroke-width="1" />
+  <text x="710" y="565" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">Applications</text>
+</svg>
