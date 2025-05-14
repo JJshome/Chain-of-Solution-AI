@@ -2,6 +2,8 @@
 
 An advanced AI framework integrating multiple problem-solving methodologies with large language models to detect and solve complex problems across multimodal data.
 
+![Chain of Solution Overview](doc/images/cos_overview.svg)
+
 ## Overview
 
 The Chain of Solution (CoS) is a novel framework that transcends traditional problem-solving methodologies by detecting patterns that emerge specifically from cross-modal data interactions. Unlike sequential reasoning approaches like Chain of Thought (CoT), CoS organizes problems across different scales through innovative feature engineering that captures relationships between modalities (text, sound, images).
@@ -15,6 +17,14 @@ This structured approach enables systematic identification of contradictions and
 - **Multi-Scale Analysis**: Organizes problems across different scales for comprehensive understanding
 - **LLM Integration**: Implements the CoS framework within Large Language Models for enhanced reasoning
 
+![Cross-Modal Analysis](doc/images/cross_modal_analysis.svg)
+
+## Extended TRIZ60 Principles
+
+The framework extends the traditional 40 TRIZ principles to 60 principles (TRIZ60), adding innovations for modern technological challenges.
+
+![TRIZ60 Principles](doc/images/triz60_principles.svg)
+
 ## Applications
 
 The CoS framework has been implemented in three key areas:
@@ -25,6 +35,8 @@ The CoS framework has been implemented in three key areas:
 
 When applied to the Alzheimer's Disease Neuroimaging Initiative (ADNI) database, our approach demonstrated 25% greater prediction accuracy compared to existing methods and enabled discovery of novel inter-modality markers undetectable through conventional single-modality analyses.
 
+![Application Areas](doc/images/application_areas.svg)
+
 ## Repository Structure
 
 - **`/src`**: Source code for the CoS framework implementation
@@ -32,14 +44,16 @@ When applied to the Alzheimer's Disease Neuroimaging Initiative (ADNI) database,
 - **`/deployment`**: Deployment and simulation resources
 - **`/Scientific_papers`**: Summaries of related scientific literature
 
-## Getting Started
-
-Please refer to the documentation in the `/doc` directory for detailed instructions on using the framework components.
-
 ## Conceptual Example: Romeo and Juliet
 
 Consider Shakespeare's tragic tale—if analysts had monitored both families, they might have noticed subtle changes: Romeo eating meals earlier than usual, Juliet spending more time on beauty routines. Analyzed separately, these weak signals appeared meaningless; together, they formed a pattern that could have predicted their fateful meeting and tragic end.
 
+![Romeo and Juliet Example](doc/images/romeo_juliet_example.svg)
+
 Similarly, CoS identifies emerging problems before they manifest fully by analyzing the relationships between different types of data rather than analyzing the data in isolation.
+
+## Getting Started
+
+Please refer to the documentation in the `/doc` directory for detailed instructions on using the framework components.
 
 Patent Pending
