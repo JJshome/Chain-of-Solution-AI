@@ -1,58 +1,58 @@
 # Chain of Solution (CoS) Framework
 
-An advanced AI framework integrating multiple problem-solving methodologies with large language models to detect and solve complex problems across multimodal data.
-
-![Chain of Solution Overview](doc/images/cos_overview.svg)
-
 ## Overview
 
-The Chain of Solution (CoS) is a novel framework that transcends traditional problem-solving methodologies by detecting patterns that emerge specifically from cross-modal data interactions. Unlike sequential reasoning approaches like Chain of Thought (CoT), CoS organizes problems across different scales through innovative feature engineering that captures relationships between modalities (text, sound, images).
+Chain of Solution (CoS) is a novel framework that transcends traditional problem-solving methodologies by detecting patterns that emerge specifically from cross-modal data interactions. It integrates structured TRIZ problem-solving methodology with multimodal data analysis to identify critical patterns that emerge only from interactions between different data types.
 
-This structured approach enables systematic identification of contradictions and their resolution through principled methods rather than unstructured reasoning, integrating TRIZ problem-solving methodology with multimodal data analysis to identify critical patterns that emerge only from interactions between different data types.
+This project implements the Chain of Solution framework as described in the paper:
+"Chain of Solution Framework: Could We Have Prevented Romeo and Juliet's Tragedy?"
+by Jee Hwan Jang, Sungkyunkwan University & Ucaretron Inc.
 
-## Key Innovations
+## Key Concepts
 
-- **Cross-Modal Pattern Detection**: Identifies patterns that emerge specifically from interactions between different data modalities
-- **Integrated Problem-Solving Methodologies**: Combines TRIZ, Su-Field analysis, and other structured approaches
-- **Multi-Scale Analysis**: Organizes problems across different scales for comprehensive understanding
-- **LLM Integration**: Implements the CoS framework within Large Language Models for enhanced reasoning
+Unlike Chain of Thought approaches that follow sequential reasoning, CoS organizes problems across different scales through innovative feature engineering that captures relationships between modalities (text, sound, images). This structured approach enables systematic identification of contradictions and their resolution through principled methods rather than unstructured reasoning.
 
-![Cross-Modal Analysis](doc/images/cross_modal_analysis.svg)
+The framework is built on these key components:
 
-## Extended TRIZ60 Principles
+1. **TRIZ60 Principles**: An expanded set of 60 problem-solving principles based on the traditional 40 TRIZ principles, with 20 additional principles that address modern technological challenges
+2. **Su-Field Analysis**: A method for analyzing and modeling the interactions between substances and fields in a system
+3. **Multimodal Data Analysis**: Techniques for analyzing data from different modalities (text, images, audio, time series) to identify emergent patterns
+4. **Large Language Model Integration**: Utilization of large language models for natural language understanding and generation
 
-The framework extends the traditional 40 TRIZ principles to 60 principles (TRIZ60), adding innovations for modern technological challenges.
+## Example Applications
 
-![TRIZ60 Principles](doc/images/triz60_principles.svg)
-
-## Core Components
-
-- **TRIZ Engine**: Implements the extended TRIZ60 principles and Su-Field 100 standard solutions
-- **Multimodal Analysis Engine**: Detects patterns across different modalities (text, images, audio, etc.)
-- **LLM Integration**: Seamlessly integrates with large language models for enhanced reasoning
-- **Applications**: Specialized modules for different domains (medical, sound analysis, image enhancement)
-
-## Applications
-
-The CoS framework has been implemented in three key areas:
+The framework has been implemented in three key areas:
 
 1. **Digital Pathology (CellStyle™)**: Integrates microscopic and clinical data to reveal multi-scale disease patterns
 2. **Sound Analysis (SoundPose™)**: Structures acoustic features to identify health conditions
 3. **Image Enhancement**: Uses feature interactions for contextual reconstruction
 
-When applied to the Alzheimer's Disease Neuroimaging Initiative (ADNI) database, our approach demonstrated 25% greater prediction accuracy compared to existing methods and enabled discovery of novel inter-modality markers undetectable through conventional single-modality analyses.
+When applied to the Alzheimer's Disease Neuroimaging Initiative (ADNI) database, the approach demonstrated 25% greater prediction accuracy compared to existing methods and enabled discovery of novel inter-modality markers undetectable through conventional single-modality analyses.
 
-![Application Areas](doc/images/application_areas.svg)
+## Project Structure
 
-## Repository Structure
+```
+Chain-of-Solution-AI/
+├── src/                          # Source code
+│   ├── chain_of_solution.py      # Main framework implementation
+│   ├── resources/                # Resources for the framework
+│   │   ├── triz60_principles.json    # TRIZ60 principles
+│   │   ├── su_field_templates.json   # Su-Field templates
+│   │   └── healthcare_knowledge.json # Domain knowledge
+├── deployment/                   # Deployment tools
+│   ├── simulation/               # Simulation environment
+│   │   ├── cos_simulation.py     # Simulation implementation
+```
 
-- **`/src`**: Source code for the CoS framework implementation
-- **`/doc`**: Comprehensive documentation
-- **`/examples`**: Usage examples and demonstrations
-- **`/deployment`**: Deployment and simulation resources
-- **`/Scientific_papers`**: Summaries of related scientific literature
+## Getting Started
 
-## Installation
+### Prerequisites
+
+- Python 3.8 or higher
+- NumPy
+- Matplotlib
+
+### Installation
 
 ```bash
 # Clone the repository
@@ -63,57 +63,60 @@ cd Chain-of-Solution-AI
 pip install -r requirements.txt
 ```
 
-## Usage
-
-Here's a simple example of using the Chain of Solution framework:
+### Basic Usage
 
 ```python
 from src import ChainOfSolution
 
-# Initialize the framework
-cos = ChainOfSolution()
+# Initialize Chain of Solution framework
+config = {
+    'model_type': 'llama3.1',
+    'model_size': '8B',
+    'use_emergent_pattern_detection': True,
+    'use_triz60': True,
+    'use_su_field_analysis': True,
+    'max_recommendations': 5
+}
+cos = ChainOfSolution(config)
 
 # Define a problem
-problem_description = "Design a more efficient way to monitor and treat patients with chronic heart conditions."
-
-# Add multimodal data (if available)
-data = {
-    'patient_text_notes': "Patient reports occasional shortness of breath...",
-    'heart_sound_recording': audio_data,  # numpy array
-    'context': {'type': 'health'}
-}
+problem = "Design a non-invasive continuous glucose monitoring system for diabetes patients"
 
 # Solve the problem
-solution = cos.solve_problem(problem_description, data=data)
+solution = cos.solve_problem(problem)
 
-# Print recommendations
-for recommendation in solution.get('recommendations', []):
-    print(recommendation)
+# Print solution summary
+print(solution['summary'])
+print(f"Confidence: {solution['confidence']:.2f}")
+print(f"Number of recommendations: {len(solution['recommendations'])}")
 ```
 
-For more detailed examples, see the `/examples` directory.
+## Simulation Environment
 
-## Conceptual Example: Romeo and Juliet
+The project includes a simulation environment for testing the Chain of Solution framework:
 
-Consider Shakespeare's tragic tale—if analysts had monitored both families, they might have noticed subtle changes: Romeo eating meals earlier than usual, Juliet spending more time on beauty routines. Analyzed separately, these weak signals appeared meaningless; together, they formed a pattern that could have predicted their fateful meeting and tragic end.
+```python
+from deployment.simulation import CoSSimulation
 
-![Romeo and Juliet Example](doc/images/romeo_juliet_example.svg)
+# Create simulation environment
+sim = CoSSimulation()
 
-Similarly, CoS identifies emerging problems before they manifest fully by analyzing the relationships between different types of data rather than analyzing the data in isolation.
+# Run a simulation
+results = sim.run_simulation(
+    domain='healthcare',
+    complexity=0.7,
+    noise_level=0.3,
+    iterations=3
+)
 
-## Citation
-
-If you use this framework in your research, please cite:
-
+# Visualize results
+sim.visualize_results(results)
 ```
-Jang, J. H. (2025). Chain of Solution Framework: Could We Have Prevented Romeo and Juliet's Tragedy?
-Department of Advanced Materials Science & Engineering, Sungkyunkwan University, Suwon, Republic of Korea
-```
 
-## License
+## Future Development
 
-Patent Pending. Research and academic use permitted.
+The ultimate goal is to implement this Chain of Solution framework within Large Language Models (LLMs), creating CoS-LLM systems capable of identifying emergent patterns across modalities, detecting subtle interaction signals, and solving complex problems by analyzing relationships that exist between different types of data rather than analyzing the data in isolation.
 
-## Acknowledgements
+## References
 
-This work was supported by Sungkyunkwan University and Ucaretron Inc.
+[1] ADNI Database: https://adni.loni.usc.edu/data-samples/adni-data/
