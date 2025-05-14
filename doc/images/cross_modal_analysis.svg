@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2d3748">Cross-Modal Pattern Detection</text>
+  <text x="400" y="70" font-family="Arial" font-size="16" text-anchor="middle" fill="#4a5568">Identifying Patterns Across Different Data Modalities</text>
+  
+  <!-- Data Modalities -->
+  <g id="modalities">
+    <!-- Text Modality -->
+    <g id="text_modality" transform="translate(100, 150)">
+      <rect width="120" height="120" rx="10" fill="#f56565" />
+      <text x="60" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Text</text>
+      
+      <!-- Text data visualization -->
+      <g fill="white" font-family="Arial" font-size="8">
+        <rect x="20" y="45" width="80" height="5" fill="white" opacity="0.8" />
+        <rect x="20" y="55" width="60" height="5" fill="white" opacity="0.8" />
+        <rect x="20" y="65" width="70" height="5" fill="white" opacity="0.8" />
+        <rect x="20" y="75" width="50" height="5" fill="white" opacity="0.8" />
+        <rect x="20" y="85" width="80" height="5" fill="white" opacity="0.8" />
+        <rect x="20" y="95" width="65" height="5" fill="white" opacity="0.8" />
+      </g>
+    </g>
+    
+    <!-- Image Modality -->
+    <g id="image_modality" transform="translate(340, 150)">
+      <rect width="120" height="120" rx="10" fill="#38b2ac" />
+      <text x="60" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Image</text>
+      
+      <!-- Image data visualization -->
+      <g>
+        <rect x="30" y="45" width="60" height="60" fill="white" opacity="0.8" />
+        <circle cx="50" cy="65" r="10" fill="#38b2ac" opacity="0.6" />
+        <rect x="65" y="55" width="15" height="15" fill="#38b2ac" opacity="0.6" />
+        <polygon points="45,85 55,85 50,75" fill="#38b2ac" opacity="0.6" />
+      </g>
+    </g>
+    
+    <!-- Audio Modality -->
+    <g id="audio_modality" transform="translate(580, 150)">
+      <rect width="120" height="120" rx="10" fill="#805ad5" />
+      <text x="60" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Audio</text>
+      
+      <!-- Audio data visualization -->
+      <path d="M 30,75 Q 40,55 50,75 Q 60,95 70,75 Q 80,55 90,75" stroke="white" stroke-width="2" fill="none" opacity="0.8" />
+      <path d="M 30,85 Q 45,75 60,85 Q 75,95 90,85" stroke="white" stroke-width="1" fill="none" opacity="0.6" />
+    </g>
+  </g>
+  
+  <!-- Feature Extraction -->
+  <g id="feature_extraction">
+    <!-- Text Features -->
+    <g transform="translate(150, 300)">
+      <path d="M 0,0 L 20,-30" stroke="#f56565" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#f56565" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">T1</text>
+    </g>
+    
+    <g transform="translate(190, 320)">
+      <path d="M 0,0 L 10,-50" stroke="#f56565" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#f56565" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">T2</text>
+    </g>
+    
+    <!-- Image Features -->
+    <g transform="translate(370, 300)">
+      <path d="M 0,0 L -10,-30" stroke="#38b2ac" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#38b2ac" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">I1</text>
+    </g>
+    
+    <g transform="translate(410, 320)">
+      <path d="M 0,0 L 10,-50" stroke="#38b2ac" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#38b2ac" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">I2</text>
+    </g>
+    
+    <!-- Audio Features -->
+    <g transform="translate(610, 300)">
+      <path d="M 0,0 L -10,-30" stroke="#805ad5" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#805ad5" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">A1</text>
+    </g>
+    
+    <g transform="translate(650, 320)">
+      <path d="M 0,0 L 10,-50" stroke="#805ad5" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="15" fill="#805ad5" />
+      <text x="0" y="5" font-family="Arial" font-size="12" text-anchor="middle" fill="white">A2</text>
+    </g>
+  </g>
+  
+  <!-- Cross-Modal Integration -->
+  <g id="cross_modal">
+    <rect x="250" y="370" width="300" height="120" rx="10" fill="#3182ce" />
+    <text x="400" y="400" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Cross-Modal Integration</text>
+    
+    <!-- Feature links -->
+    <path d="M 150,300 C 150,340 200,370 250,390" stroke="#f56565" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 190,320 C 200,350 230,370 270,400" stroke="#f56565" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 370,300 C 370,330 350,360 350,390" stroke="#38b2ac" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 410,320 C 410,340 390,370 380,400" stroke="#38b2ac" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 610,300 C 600,340 550,370 500,390" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="5s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 650,320 C 630,350 570,370 520,400" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="5.5s" repeatCount="indefinite" />
+    </path>
+  </g>
+  
+  <!-- Emerging Patterns -->
+  <g id="patterns">
+    <!-- Pattern 1 -->
+    <g transform="translate(300, 525)">
+      <path d="M 0,0 L 40,-35" stroke="#2d3748" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="25" fill="#ed8936">
+        <animate attributeName="r" values="20;25;20" dur="3s" repeatCount="indefinite" />
+      </circle>
+      <text x="0" y="5" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">P1</text>
+    </g>
+    
+    <!-- Pattern 2 -->
+    <g transform="translate(400, 525)">
+      <path d="M 0,0 L 0,-35" stroke="#2d3748" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="25" fill="#ed8936">
+        <animate attributeName="r" values="20;25;20" dur="4s" repeatCount="indefinite" />
+      </circle>
+      <text x="0" y="5" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">P2</text>
+    </g>
+    
+    <!-- Pattern 3 -->
+    <g transform="translate(500, 525)">
+      <path d="M 0,0 L -40,-35" stroke="#2d3748" stroke-width="2" marker-end="url(#arrowhead)" />
+      <circle cx="0" cy="0" r="25" fill="#ed8936">
+        <animate attributeName="r" values="20;25;20" dur="5s" repeatCount="indefinite" />
+      </circle>
+      <text x="0" y="5" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">P3</text>
+    </g>
+  </g>
+  
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2d3748" />
+    </marker>
+  </defs>
+  
+  <!-- Annotations -->
+  <g id="annotations" font-family="Arial" font-size="12" fill="#2d3748">
+    <text x="160" y="130" text-anchor="middle">Text Data</text>
+    <text x="400" y="130" text-anchor="middle">Image Data</text>
+    <text x="640" y="130" text-anchor="middle">Audio Data</text>
+    
+    <text x="170" y="350" text-anchor="middle">Semantic Features</text>
+    <text x="390" y="350" text-anchor="middle">Visual Features</text>
+    <text x="630" y="350" text-anchor="middle">Acoustic Features</text>
+    
+    <text x="400" y="530" text-anchor="middle" font-size="16" font-weight="bold">Emergent Patterns</text>
+    <text x="400" y="550" text-anchor="middle" font-style="italic">Detected only through cross-modal analysis</text>
+  </g>
+</svg>

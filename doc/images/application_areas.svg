@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2d3748">Chain of Solution Applications</text>
+  <text x="400" y="70" font-family="Arial" font-size="16" text-anchor="middle" fill="#4a5568">Key Areas Where CoS Framework Has Been Applied</text>
+  
+  <!-- Central CoS Hub -->
+  <g id="central_hub" transform="translate(400, 300)">
+    <circle cx="0" cy="0" r="80" fill="#4299e1" stroke="#2c5282" stroke-width="3" />
+    <text x="0" y="-15" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Chain of</text>
+    <text x="0" y="15" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="white">Solution</text>
+    <text x="0" y="40" font-family="Arial" font-size="14" font-style="italic" text-anchor="middle" fill="white">Framework</text>
+  </g>
+  
+  <!-- Digital Pathology Application -->
+  <g id="digital_pathology" transform="translate(200, 150)">
+    <rect width="150" height="100" rx="10" fill="#f56565" />
+    <text x="75" y="35" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Digital Pathology</text>
+    <text x="75" y="55" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">CellStyle™</text>
+    
+    <!-- Icons/Visuals -->
+    <g transform="translate(30, 75)">
+      <circle cx="0" cy="0" r="10" fill="white" opacity="0.8" />
+      <circle cx="25" cy="0" r="8" fill="white" opacity="0.8" />
+      <circle cx="45" cy="0" r="12" fill="white" opacity="0.8" />
+      <circle cx="70" cy="0" r="7" fill="white" opacity="0.8" />
+      <rect x="85" y="-5" width="10" height="10" fill="white" opacity="0.8" />
+    </g>
+    
+    <!-- Connection to center -->
+    <path d="M 75,100 L 160,180 L 330,250" stroke="#f56565" stroke-width="3" fill="none" marker-end="url(#arrowhead)">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Description -->
+    <g transform="translate(0, 120)">
+      <rect width="150" height="40" rx="5" fill="#fed7d7" opacity="0.9" />
+      <text x="75" y="15" font-family="Arial" font-size="10" text-anchor="middle" fill="#9b2c2c">Integrates microscopic and</text>
+      <text x="75" y="30" font-family="Arial" font-size="10" text-anchor="middle" fill="#9b2c2c">clinical data for disease patterns</text>
+    </g>
+  </g>
+  
+  <!-- Sound Analysis Application -->
+  <g id="sound_analysis" transform="translate(600, 150)">
+    <rect width="150" height="100" rx="10" fill="#805ad5" />
+    <text x="75" y="35" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Sound Analysis</text>
+    <text x="75" y="55" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">SoundPose™</text>
+    
+    <!-- Icons/Visuals -->
+    <g transform="translate(40, 75)">
+      <path d="M 0,0 Q 10,-10 20,0 Q 30,10 40,0 Q 50,-10 60,0" stroke="white" stroke-width="2" fill="none" opacity="0.8" />
+      <path d="M 10,5 Q 20,-5 30,5 Q 40,15 50,5" stroke="white" stroke-width="2" fill="none" opacity="0.8" />
+    </g>
+    
+    <!-- Connection to center -->
+    <path d="M 75,100 L 15,180 L -30,250" stroke="#805ad5" stroke-width="3" fill="none" marker-end="url(#arrowhead)" transform="translate(600, 0)">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3.5s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Description -->
+    <g transform="translate(0, 120)">
+      <rect width="150" height="40" rx="5" fill="#e9d8fd" opacity="0.9" />
+      <text x="75" y="15" font-family="Arial" font-size="10" text-anchor="middle" fill="#553c9a">Structures acoustic features</text>
+      <text x="75" y="30" font-family="Arial" font-size="10" text-anchor="middle" fill="#553c9a">to identify health conditions</text>
+    </g>
+  </g>
+  
+  <!-- Image Enhancement Application -->
+  <g id="image_enhancement" transform="translate(200, 450)">
+    <rect width="150" height="100" rx="10" fill="#38a169" />
+    <text x="75" y="35" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Image</text>
+    <text x="75" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Enhancement</text>
+    
+    <!-- Icons/Visuals -->
+    <g transform="translate(35, 75)">
+      <rect x="0" y="-10" width="25" height="20" fill="white" opacity="0.4" />
+      <rect x="35" y="-10" width="25" height="20" fill="white" opacity="0.8" />
+      <text x="12" y="3" font-family="Arial" font-size="10" text-anchor="middle" fill="white">SD</text>
+      <text x="47" y="3" font-family="Arial" font-size="10" text-anchor="middle" fill="white">HD</text>
+      <path d="M 27,0 L 33,0" stroke="white" stroke-width="2" marker-end="url(#arrowhead)" />
+    </g>
+    
+    <!-- Connection to center -->
+    <path d="M 75,50 L 160,0 L 330,-50" stroke="#38a169" stroke-width="3" fill="none" marker-end="url(#arrowhead)" transform="translate(0, 450)">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="4s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Description -->
+    <g transform="translate(0, 120)">
+      <rect width="150" height="40" rx="5" fill="#c6f6d5" opacity="0.9" />
+      <text x="75" y="15" font-family="Arial" font-size="10" text-anchor="middle" fill="#276749">Uses feature interactions for</text>
+      <text x="75" y="30" font-family="Arial" font-size="10" text-anchor="middle" fill="#276749">contextual reconstruction</text>
+    </g>
+  </g>
+  
+  <!-- Alzheimer's Study -->
+  <g id="alzheimers" transform="translate(600, 450)">
+    <rect width="150" height="100" rx="10" fill="#ed8936" />
+    <text x="75" y="35" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Alzheimer's</text>
+    <text x="75" y="55" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Detection</text>
+    
+    <!-- Icons/Visuals -->
+    <g transform="translate(40, 75)">
+      <path d="M 0,0 C 10,-5 20,-8 30,-5 C 40,-2 50,2 60,0" stroke="white" stroke-width="2" fill="none" opacity="0.8" />
+      <ellipse cx="30" cy="-5" rx="20" ry="10" stroke="white" stroke-width="1" fill="none" opacity="0.6" />
+    </g>
+    
+    <!-- Connection to center -->
+    <path d="M 75,50 L 15,0 L -30,-50" stroke="#ed8936" stroke-width="3" fill="none" marker-end="url(#arrowhead)" transform="translate(600, 450)">
+      <animate attributeName="stroke-dashoffset" from="100" to="0" dur="4.5s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Description -->
+    <g transform="translate(0, 120)">
+      <rect width="150" height="40" rx="5" fill="#feebc8" opacity="0.9" />
+      <text x="75" y="15" font-family="Arial" font-size="10" text-anchor="middle" fill="#9c4221">25% improved accuracy using</text>
+      <text x="75" y="30" font-family="Arial" font-size="10" text-anchor="middle" fill="#9c4221">ADNI database analysis</text>
+    </g>
+  </g>
+  
+  <!-- Technology Components -->
+  <g id="components" transform="translate(400, 300)">
+    <!-- TRIZ -->
+    <g transform="translate(-40, -20)">
+      <circle cx="0" cy="0" r="15" fill="#2c5282" />
+      <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="white">TRIZ</text>
+    </g>
+    
+    <!-- LLM -->
+    <g transform="translate(40, -20)">
+      <circle cx="0" cy="0" r="15" fill="#2c5282" />
+      <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="white">LLM</text>
+    </g>
+    
+    <!-- Data -->
+    <g transform="translate(0, 20)">
+      <circle cx="0" cy="0" r="15" fill="#2c5282" />
+      <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="white">MM</text>
+    </g>
+  </g>
+  
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2d3748" />
+    </marker>
+  </defs>
+  
+  <!-- Rotating animation for central hub -->
+  <g transform="translate(400, 300)">
+    <circle cx="0" cy="0" r="90" stroke="#2c5282" stroke-width="1" fill="none" stroke-dasharray="5,5">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

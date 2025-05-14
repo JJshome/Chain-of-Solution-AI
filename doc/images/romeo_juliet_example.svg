@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f0f4f8" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2d3748">Romeo and Juliet: A CoS Case Study</text>
+  <text x="400" y="70" font-family="Arial" font-size="16" text-anchor="middle" fill="#4a5568">How Cross-Modal Pattern Detection Could Have Prevented a Tragedy</text>
+  
+  <!-- Montague House -->
+  <g id="montague_house" transform="translate(150, 150)">
+    <rect width="200" height="200" rx="5" fill="#3182ce" stroke="#2c5282" stroke-width="2" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">House of Montague</text>
+    
+    <!-- Romeo -->
+    <g transform="translate(100, 100)">
+      <circle cx="0" cy="0" r="40" fill="#4299e1" stroke="#2c5282" stroke-width="2" />
+      <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Romeo</text>
+    </g>
+    
+    <!-- Romeo's behaviors -->
+    <g font-family="Arial" font-size="12" fill="white">
+      <rect x="20" y="160" width="160" height="20" rx="5" fill="#4299e1" opacity="0.8" />
+      <text x="100" y="175" text-anchor="middle">Earlier meal times</text>
+    </g>
+  </g>
+  
+  <!-- Capulet House -->
+  <g id="capulet_house" transform="translate(450, 150)">
+    <rect width="200" height="200" rx="5" fill="#e53e3e" stroke="#9b2c2c" stroke-width="2" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">House of Capulet</text>
+    
+    <!-- Juliet -->
+    <g transform="translate(100, 100)">
+      <circle cx="0" cy="0" r="40" fill="#f56565" stroke="#9b2c2c" stroke-width="2" />
+      <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Juliet</text>
+    </g>
+    
+    <!-- Juliet's behaviors -->
+    <g font-family="Arial" font-size="12" fill="white">
+      <rect x="20" y="160" width="160" height="20" rx="5" fill="#f56565" opacity="0.8" />
+      <text x="100" y="175" text-anchor="middle">More beauty routines</text>
+    </g>
+  </g>
+  
+  <!-- Traditional Analysis -->
+  <g id="traditional_analysis" transform="translate(150, 400)">
+    <rect width="200" height="150" rx="10" fill="#718096" opacity="0.8" />
+    <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Traditional Analysis</text>
+    
+    <g font-family="Arial" font-size="12" fill="white">
+      <text x="100" y="60" text-anchor="middle">Separate data analysis</text>
+      <text x="100" y="80" text-anchor="middle">No connection made</text>
+      <text x="100" y="100" text-anchor="middle">Weak signals ignored</text>
+      <text x="100" y="120" text-anchor="middle">Each house monitored in isolation</text>
+    </g>
+    
+    <text x="100" y="145" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Result: Tragedy</text>
+  </g>
+  
+  <!-- CoS Analysis -->
+  <g id="cos_analysis" transform="translate(450, 400)">
+    <rect width="200" height="150" rx="10" fill="#38a169" opacity="0.8" />
+    <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">CoS Analysis</text>
+    
+    <g font-family="Arial" font-size="12" fill="white">
+      <text x="100" y="60" text-anchor="middle">Cross-modal pattern detection</text>
+      <text x="100" y="80" text-anchor="middle">Correlation of behavior changes</text>
+      <text x="100" y="100" text-anchor="middle">Weak signal amplification</text>
+      <text x="100" y="120" text-anchor="middle">Relationship pattern identified</text>
+    </g>
+    
+    <text x="100" y="145" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Result: Prevention</text>
+  </g>
+  
+  <!-- Connecting Elements -->
+  <g id="connections">
+    <!-- Romeo meeting Juliet (animated) -->
+    <g id="meeting">
+      <path d="M 250,250 Q 400,200 550,250" stroke="#805ad5" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="1s" repeatCount="indefinite" />
+      </path>
+      <circle cx="400" cy="230" r="15" fill="#805ad5" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1" dur="5s" begin="1s" repeatCount="indefinite" />
+      </circle>
+      <text x="400" y="235" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="white" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1" dur="5s" begin="1s" repeatCount="indefinite" />
+        ⚭
+      </text>
+    </g>
+    
+    <!-- Cross-modal analysis connections -->
+    <path d="M 170,370 C 200,380 350,350 500,370" stroke="#38a169" stroke-width="2" stroke-dasharray="5,5" opacity="0">
+      <animate attributeName="opacity" values="0;0.7;0.7" dur="5s" begin="3s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 630,330 C 650,380 700,400 650,450" stroke="#38a169" stroke-width="2" stroke-dasharray="5,5" opacity="0">
+      <animate attributeName="opacity" values="0;0.7;0.7" dur="5s" begin="3.5s" repeatCount="indefinite" />
+    </path>
+    
+    <path d="M 140,330 C 100,380 50,400 150,450" stroke="#718096" stroke-width="2" stroke-dasharray="5,5" opacity="0">
+      <animate attributeName="opacity" values="0;0.7;0.7" dur="5s" begin="2s" repeatCount="indefinite" />
+    </path>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(350, 570)" font-family="Arial" font-size="12" fill="#2d3748">
+    <text x="0" y="0" text-anchor="middle">Weak signals, analyzed together, reveal critical patterns</text>
+  </g>
+</svg>

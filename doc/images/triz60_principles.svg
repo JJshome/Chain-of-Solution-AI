@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#2d3748">TRIZ60 Principles</text>
+  <text x="400" y="70" font-family="Arial" font-size="16" text-anchor="middle" fill="#4a5568">Extended TRIZ Methodology for Modern Problems</text>
+  
+  <!-- Traditional TRIZ circle (1-40) -->
+  <circle cx="300" cy="300" r="180" fill="#3182ce" stroke="#2c5282" stroke-width="2" opacity="0.8" />
+  <text x="300" y="190" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Traditional TRIZ</text>
+  <text x="300" y="220" font-family="Arial" font-size="16" text-anchor="middle" fill="white">Principles 1-40</text>
+  
+  <!-- Some traditional principles for illustration -->
+  <g font-family="Arial" font-size="12" fill="white">
+    <text x="240" y="260" text-anchor="middle">1. Segmentation</text>
+    <text x="330" y="280" text-anchor="middle">2. Taking Out</text>
+    <text x="240" y="300" text-anchor="middle">5. Merging</text>
+    <text x="330" y="320" text-anchor="middle">10. Prior Action</text>
+    <text x="240" y="340" text-anchor="middle">15. Dynamism</text>
+    <text x="330" y="360" text-anchor="middle">22. Convert Harm</text>
+    <text x="240" y="380" text-anchor="middle">35. Parameter Change</text>
+    <text x="330" y="400" text-anchor="middle">40. Composite Materials</text>
+  </g>
+  
+  <!-- Extended TRIZ arc (41-60) -->
+  <path d="M 300,300 L 480,300 A 180,180 0 0,0 300,120 Z" fill="#38b2ac" stroke="#2c7a7b" stroke-width="2" opacity="0.9" />
+  <text x="400" y="190" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Extended TRIZ</text>
+  <text x="400" y="220" font-family="Arial" font-size="16" text-anchor="middle" fill="white">Principles 41-60</text>
+  
+  <!-- Core TRIZ innovation methods -->
+  <g id="methods" transform="translate(560, 300)">
+    <rect width="200" height="200" rx="10" fill="#e53e3e" opacity="0.8" />
+    <text x="100" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="white">TRIZ Methods</text>
+    
+    <g font-family="Arial" font-size="12" fill="white">
+      <rect x="20" y="50" width="160" height="25" rx="5" fill="#f56565" />
+      <text x="100" y="67" text-anchor="middle">Contradiction Matrix</text>
+      
+      <rect x="20" y="85" width="160" height="25" rx="5" fill="#f56565" />
+      <text x="100" y="102" text-anchor="middle">Su-Field Analysis</text>
+      
+      <rect x="20" y="120" width="160" height="25" rx="5" fill="#f56565" />
+      <text x="100" y="137" text-anchor="middle">Ideality</text>
+      
+      <rect x="20" y="155" width="160" height="25" rx="5" fill="#f56565" />
+      <text x="100" y="172" text-anchor="middle">Resources</text>
+    </g>
+  </g>
+  
+  <!-- Extended Principles (animated) -->
+  <g font-family="Arial" font-size="12" fill="white">
+    <!-- Principles 41-45 -->
+    <g transform="translate(400, 130)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="0s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="0s" repeatCount="indefinite" />
+        41. Adjustment
+      </text>
+    </g>
+    
+    <g transform="translate(400, 155)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="0.5s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="0.5s" repeatCount="indefinite" />
+        42. Dynamic Reconfiguration
+      </text>
+    </g>
+    
+    <g transform="translate(400, 180)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="1s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="1s" repeatCount="indefinite" />
+        43. Energy Redistribution
+      </text>
+    </g>
+    
+    <g transform="translate(400, 205)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="1.5s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="1.5s" repeatCount="indefinite" />
+        44. Multi-state Operation
+      </text>
+    </g>
+    
+    <g transform="translate(400, 230)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="2s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="2s" repeatCount="indefinite" />
+        45. Non-linear Interactions
+      </text>
+    </g>
+    
+    <!-- Principles 46-50 -->
+    <g transform="translate(400, 255)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="2.5s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="2.5s" repeatCount="indefinite" />
+        46. Self-diagnosis
+      </text>
+    </g>
+    
+    <g transform="translate(400, 280)">
+      <rect width="180" height="20" rx="5" fill="#38a169" opacity="0">
+        <animate attributeName="opacity" values="0;0.8;0.8" dur="5s" begin="3s" repeatCount="indefinite" />
+      </rect>
+      <text x="90" y="15" text-anchor="middle" opacity="0">
+        <animate attributeName="opacity" values="0;1;1" dur="5s" begin="3s" repeatCount="indefinite" />
+        47. Information Compression
+      </text>
+    </g>
+  </g>
+  
+  <!-- Linking lines and arrows -->
+  <g id="links" stroke="#4a5568" stroke-width="2" fill="none">
+    <!-- Link between traditional and extended TRIZ -->
+    <path d="M 300,300 L 380,300" marker-end="url(#arrowhead)" stroke-dasharray="5,3" />
+    
+    <!-- Links to methods -->
+    <path d="M 400,300 C 430,300 450,340 480,340" marker-end="url(#arrowhead)" stroke-dasharray="5,3" />
+    <path d="M 300,380 C 400,400 500,380 560,380" marker-end="url(#arrowhead)" stroke-dasharray="5,3" />
+  </g>
+  
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+  </defs>
+  
+  <!-- Key applications -->
+  <g id="applications" transform="translate(100, 450)">
+    <rect width="600" height="100" rx="10" fill="#4299e1" opacity="0.7" />
+    <text x="300" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Modern Applications of TRIZ60</text>
+    
+    <g font-family="Arial" font-size="14" fill="white">
+      <circle cx="150" cy="60" r="20" fill="#805ad5" />
+      <text x="150" y="65" text-anchor="middle">AI</text>
+      
+      <circle cx="250" cy="60" r="20" fill="#805ad5" />
+      <text x="250" y="65" text-anchor="middle">Nano</text>
+      
+      <circle cx="350" cy="60" r="20" fill="#805ad5" />
+      <text x="350" y="65" text-anchor="middle">Bio</text>
+      
+      <circle cx="450" cy="60" r="20" fill="#805ad5" />
+      <text x="450" y="65" text-anchor="middle">Quantum</text>
+      
+      <circle cx="550" cy="60" r="20" fill="#805ad5" />
+      <text x="550" y="65" text-anchor="middle">Energy</text>
+    </g>
+  </g>
+</svg>
