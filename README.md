@@ -25,6 +25,13 @@ The framework extends the traditional 40 TRIZ principles to 60 principles (TRIZ6
 
 ![TRIZ60 Principles](doc/images/triz60_principles.svg)
 
+## Core Components
+
+- **TRIZ Engine**: Implements the extended TRIZ60 principles and Su-Field 100 standard solutions
+- **Multimodal Analysis Engine**: Detects patterns across different modalities (text, images, audio, etc.)
+- **LLM Integration**: Seamlessly integrates with large language models for enhanced reasoning
+- **Applications**: Specialized modules for different domains (medical, sound analysis, image enhancement)
+
 ## Applications
 
 The CoS framework has been implemented in three key areas:
@@ -41,8 +48,50 @@ When applied to the Alzheimer's Disease Neuroimaging Initiative (ADNI) database,
 
 - **`/src`**: Source code for the CoS framework implementation
 - **`/doc`**: Comprehensive documentation
+- **`/examples`**: Usage examples and demonstrations
 - **`/deployment`**: Deployment and simulation resources
 - **`/Scientific_papers`**: Summaries of related scientific literature
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/JJshome/Chain-of-Solution-AI.git
+cd Chain-of-Solution-AI
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Usage
+
+Here's a simple example of using the Chain of Solution framework:
+
+```python
+from src import ChainOfSolution
+
+# Initialize the framework
+cos = ChainOfSolution()
+
+# Define a problem
+problem_description = "Design a more efficient way to monitor and treat patients with chronic heart conditions."
+
+# Add multimodal data (if available)
+data = {
+    'patient_text_notes': "Patient reports occasional shortness of breath...",
+    'heart_sound_recording': audio_data,  # numpy array
+    'context': {'type': 'health'}
+}
+
+# Solve the problem
+solution = cos.solve_problem(problem_description, data=data)
+
+# Print recommendations
+for recommendation in solution.get('recommendations', []):
+    print(recommendation)
+```
+
+For more detailed examples, see the `/examples` directory.
 
 ## Conceptual Example: Romeo and Juliet
 
@@ -52,8 +101,19 @@ Consider Shakespeare's tragic tale—if analysts had monitored both families, th
 
 Similarly, CoS identifies emerging problems before they manifest fully by analyzing the relationships between different types of data rather than analyzing the data in isolation.
 
-## Getting Started
+## Citation
 
-Please refer to the documentation in the `/doc` directory for detailed instructions on using the framework components.
+If you use this framework in your research, please cite:
 
-Patent Pending
+```
+Jang, J. H. (2025). Chain of Solution Framework: Could We Have Prevented Romeo and Juliet's Tragedy?
+Department of Advanced Materials Science & Engineering, Sungkyunkwan University, Suwon, Republic of Korea
+```
+
+## License
+
+Patent Pending. Research and academic use permitted.
+
+## Acknowledgements
+
+This work was supported by Sungkyunkwan University and Ucaretron Inc.
