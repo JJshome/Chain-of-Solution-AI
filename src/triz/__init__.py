@@ -1,4 +1,5 @@
-# TRIZ Module for Chain of Solution
+"""TRIZ principles and analysis modules for Chain of Solution framework."""
 
-__version__ = "0.1.0"
-__author__ = "Jee Hwan Jang"
+from .triz_engine import TRIZEngine
+
+__all__ = ['TRIZEngine']

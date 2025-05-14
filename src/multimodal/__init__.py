@@ -1,4 +1,5 @@
-# Multimodal Analysis Module for Chain of Solution
+"""Multimodal analysis modules for Chain of Solution framework."""
 
-__version__ = "0.1.0"
-__author__ = "Jee Hwan Jang"
+from .multimodal_engine import MultimodalEngine
+
+__all__ = ['MultimodalEngine']
