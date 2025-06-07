@@ -1,0 +1,89 @@
+{
+  "name": "OS Matrix",
+  "description": "Opportunity Space Matrix for R&D problem solving and innovation",
+  "dimensions": {
+    "x_axis": {
+      "name": "R&D Objectives",
+      "categories": [
+        "Performance Enhancement",
+        "Cost Reduction",
+        "Quality Improvement",
+        "Environmental Impact",
+        "User Experience",
+        "Safety Enhancement",
+        "Reliability Increase",
+        "Efficiency Optimization"
+      ]
+    },
+    "y_axis": {
+      "name": "Solution Methods",
+      "categories": [
+        "Material Innovation",
+        "Process Optimization",
+        "Design Modification",
+        "Technology Integration",
+        "System Architecture",
+        "Control Enhancement",
+        "Energy Management",
+        "Information Processing"
+      ]
+    }
+  },
+  "analysis_methods": [
+    {
+      "name": "Patent Mapping",
+      "description": "Map existing patents to identify white spaces and opportunities",
+      "steps": [
+        "Collect relevant patent data",
+        "Categorize patents by objectives and methods",
+        "Identify empty or sparse cells",
+        "Analyze potential opportunities"
+      ]
+    },
+    {
+      "name": "Technology Trend Analysis",
+      "description": "Analyze technology development trends across the matrix",
+      "steps": [
+        "Track technology evolution patterns",
+        "Identify emerging areas",
+        "Predict future development directions",
+        "Assess market readiness"
+      ]
+    },
+    {
+      "name": "Cross-Domain Innovation",
+      "description": "Identify opportunities by combining different domains",
+      "steps": [
+        "Map technologies from different domains",
+        "Identify potential synergies",
+        "Evaluate feasibility of combinations",
+        "Generate innovation concepts"
+      ]
+    }
+  ],
+  "integration_with_triz": {
+    "principle_mapping": "Map TRIZ principles to OS Matrix cells",
+    "contradiction_analysis": "Use matrix to identify and resolve contradictions",
+    "evolution_trends": "Apply TRIZ evolution trends to matrix patterns"
+  },
+  "case_studies": [
+    {
+      "industry": "Electronics",
+      "objective": "Performance Enhancement",
+      "method": "Material Innovation",
+      "solution": "Graphene-based transistors for faster processing"
+    },
+    {
+      "industry": "Automotive",
+      "objective": "Environmental Impact",
+      "method": "Energy Management",
+      "solution": "Regenerative braking systems"
+    },
+    {
+      "industry": "Healthcare",
+      "objective": "User Experience",
+      "method": "Technology Integration",
+      "solution": "AI-powered diagnostic assistants"
+    }
+  ]
+}
