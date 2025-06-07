@@ -1,0 +1,165 @@
+{
+  "name": "Six Sigma",
+  "description": "Six Sigma quality management methodology for process improvement",
+  "dmaic_process": {
+    "Define": {
+      "description": "Define the problem and project goals",
+      "tools": [
+        "Project Charter",
+        "Voice of Customer (VOC)",
+        "SIPOC Diagram",
+        "Stakeholder Analysis"
+      ],
+      "deliverables": [
+        "Problem Statement",
+        "Project Scope",
+        "Team Charter",
+        "Timeline"
+      ]
+    },
+    "Measure": {
+      "description": "Measure current process performance",
+      "tools": [
+        "Process Mapping",
+        "Data Collection Plan",
+        "Measurement System Analysis (MSA)",
+        "Control Charts"
+      ],
+      "deliverables": [
+        "Baseline Performance Data",
+        "Process Capability Index",
+        "Data Collection System",
+        "Key Metrics"
+      ]
+    },
+    "Analyze": {
+      "description": "Analyze data to identify root causes",
+      "tools": [
+        "Fishbone Diagram",
+        "5 Whys Analysis",
+        "Pareto Analysis",
+        "Statistical Analysis",
+        "Regression Analysis"
+      ],
+      "deliverables": [
+        "Root Cause Analysis",
+        "Critical Factors",
+        "Process Analysis",
+        "Hypothesis Testing Results"
+      ]
+    },
+    "Improve": {
+      "description": "Implement solutions to improve process",
+      "tools": [
+        "Design of Experiments (DOE)",
+        "Solution Selection Matrix",
+        "FMEA",
+        "Pilot Testing"
+      ],
+      "deliverables": [
+        "Improvement Plan",
+        "Implementation Results",
+        "Process Modifications",
+        "Performance Metrics"
+      ]
+    },
+    "Control": {
+      "description": "Control and sustain improvements",
+      "tools": [
+        "Control Plans",
+        "Statistical Process Control (SPC)",
+        "Standard Operating Procedures",
+        "Training Plans"
+      ],
+      "deliverables": [
+        "Control Documentation",
+        "Monitoring System",
+        "Response Plans",
+        "Continuous Improvement Process"
+      ]
+    }
+  },
+  "sigma_levels": [
+    {
+      "level": 1,
+      "dpmo": 691462,
+      "yield": "30.9%",
+      "description": "Very poor quality"
+    },
+    {
+      "level": 2,
+      "dpmo": 308538,
+      "yield": "69.1%",
+      "description": "Poor quality"
+    },
+    {
+      "level": 3,
+      "dpmo": 66807,
+      "yield": "93.3%",
+      "description": "Fair quality"
+    },
+    {
+      "level": 4,
+      "dpmo": 6210,
+      "yield": "99.38%",
+      "description": "Good quality"
+    },
+    {
+      "level": 5,
+      "dpmo": 233,
+      "yield": "99.977%",
+      "description": "Very good quality"
+    },
+    {
+      "level": 6,
+      "dpmo": 3.4,
+      "yield": "99.99966%",
+      "description": "World-class quality"
+    }
+  ],
+  "integration_with_cos": {
+    "triz_integration": "Use TRIZ principles to generate improvement solutions in Improve phase",
+    "ai_feedback": "Implement AI feedback loops for real-time quality monitoring",
+    "dynamic_optimization": "Apply dynamic reconfiguration for adaptive quality control"
+  },
+  "key_metrics": {
+    "process_metrics": [
+      "Defects Per Million Opportunities (DPMO)",
+      "Process Capability (Cp, Cpk)",
+      "Rolled Throughput Yield (RTY)",
+      "First Time Yield (FTY)"
+    ],
+    "financial_metrics": [
+      "Cost of Poor Quality (COPQ)",
+      "Return on Investment (ROI)",
+      "Cost Savings",
+      "Revenue Impact"
+    ],
+    "customer_metrics": [
+      "Customer Satisfaction Score",
+      "Net Promoter Score (NPS)",
+      "Customer Complaints",
+      "Service Level Agreement (SLA) Compliance"
+    ]
+  },
+  "application_examples": [
+    {
+      "industry": "Manufacturing",
+      "problem": "High defect rate in production",
+      "solution": "Implemented SPC and reduced defects by 80%",
+      "sigma_improvement": "From 3.2 to 4.5 sigma"
+    },
+    {
+      "industry": "Healthcare",
+      "problem": "Long patient wait times",
+      "solution": "Process optimization reduced wait time by 60%",
+      "sigma_improvement": "From 2.8 to 4.2 sigma"
+    },
+    {
+      "industry": "Finance",
+      "problem": "High error rate in transactions",
+      "solution": "Automated validation reduced errors by 95%",
+      "sigma_improvement": "From 3.5 to 5.1 sigma"
+    }
+  ]
+}
